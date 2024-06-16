@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件下载界面</title>
+        <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f7f7f7;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .software-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .software-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 20px;
+        }
+        .software-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .software-description {
+            margin-bottom: 20px;
+        }
+        .software-rating {
+            color: gold;
+            margin-bottom: 10px;
+        }
+        .download-button {
+            display: inline-block;
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .download-button:hover {
+            background-color: #4cae4c;
+        }
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .software-item {
+                padding: 10px;
+            }
+            .software-title {
+                font-size: 20px;
+            }
+            .download-button {
+                padding: 8px 16px;
+            }
+        }
+    </style>
+    
+    <style>
+        /* 模态窗口的样式 */
+        .modal {
+            display: none; /* 默认不显示 */
+            position: fixed; /* 固定定位 */
+            z-index: 1; /* 确保模态窗口在最上层 */
+            left: 0;
+            top: 0;
+            width: 100%; /* 宽度100% */
+            height: 100%; /* 高度100% */
+            overflow: auto; /* 允许滚动 */
+            background-color: rgba(0,0,0,0.4); /* 黑色背景，透明度0.4 */
+        }
+
+        /* 模态内容的样式 */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15%从顶部和自动居中 */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* 内容宽度为80% */
+        }
+
+        /* 关闭按钮的样式 */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    
+
+</head>
+<body>
+    <div class="container">
+        <!-- 软件下载卡片 -->
+        <div class="software-item">
+            <h2 class="software-title">烧脑眼神王</h2>
+            <p class="software-description"></p>
+            <a href="https://share.feijipan.com/s/4cAgiJaq" class="download-button">下载</a> 
+
+    </div>
+
+
+
+        
+        <div class="software-item">
+            <h2 class="software-title">单机小汽车游戏</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/h5Agkn7E" class="download-button">立即下载</a> 
+            
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">单机自行车挑战</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/H7AgmXbh" class="download-button">立即下载</a> 
+            
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">钩鱼</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/IuAjh5Qd" class="download-button">立即下载</a> 
+        </div>
+            
+        <div class="software-item">
+            <h2 class="software-title">植物大战僵尸单机版</h2>
+            <p class="software-description"></p>
+
+            <a href="https://a.download.yunzhongzhuan.com/download/2853694/F2sj243G/base.apk?t=1714814120&o=yunzhongzhuan.com" class="download-button">立即下载</a>
+            
+        </div>
+            
+            <div class="software-item">
+            <h2 class="software-title">永恒世界txt</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/BMAltBuI" class="download-button">立即下载</a> 
+        </div>
+            
+        <div class="software-item">
+            <h2 class="software-title">绯月</h2>
+            <p class="software-description"></p>
+
+            <a href="https://a.download.yunzhongzhuan.com/download/2856541/biqK5DhF/%E7%BB%AF%E6%9C%88.apk?t=1714989985&o=yunzhongzhuan.com" class="download-button">立即下载</a>
+            
+        </div>
+        
+            <div class="software-item">
+            <h2 class="software-title">部落冲突</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/vJAqQLbY" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">女神的最佳交易</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/QmArQ0Sb" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">美少女万华镜1</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/P6AtzrjC" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">美少女万华镜2</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/bjAttVOo" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">美少女万华镜2.5</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/sHAtrpwx" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">美少女万华镜3</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/C3AtrdKe" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">美少女万华镜4</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/XxAtqIq5" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">美少女万华镜5</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/D7Atm6vR" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">美少女万华镜6</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/dXAtooml" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">新天域</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/6jAtjKZo" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">NAA</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/x2Atp73p" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">生活</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/4tAtpvyO" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">恶魔</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/jkAtpyun" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">莎拉罗斯的生存</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/fGAy6yWb" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">淫荡乘客</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/JLA9l1H3" class="download-button">立即下载</a>
+        </div>
+        
+        <div class="software-item">
+            <h2 class="software-title">妹～团乐的刻～</h2>
+            <p class="software-description"></p>
+
+            <a href="https://share.feijipan.com/s/YCA96Yva" class="download-button">立即下载</a>
+        </div>
+        
+    </div>
+</body>
+</html>
+     
