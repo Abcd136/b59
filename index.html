@@ -3,283 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>软件下载界面</title>
-        <style>
+    <title>专业司机培训学校</title>
+    <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #f7f7f7;
+            display: flex;
         }
-        .container {
-            max-width: 1200px;
-            margin: auto;
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            height: 100vh;
+            color: white;
+            padding: 20px;
+            transition: width 0.3s;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        .sidebar a:hover {
+            background-color: #555;
+        }
+        .sidebar .submenu {
+            display: none;
+            padding-left: 20px;
+        }
+        .sidebar .submenu a {
+            padding: 5px;
+        }
+        .main-content {
+            flex-grow: 1;
             padding: 20px;
         }
-        .software-item {
-            background: #fff;
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+        .card {
+            background-color: #fff;
             border: 1px solid #ddd;
-            margin-bottom: 20px;
+            border-radius: 10px;
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
         }
-        .software-image {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-bottom: 20px;
+        .card:hover {
+            transform: translateY(-5px);
         }
-        .software-title {
-            font-size: 24px;
+        .card-category {
+            text-transform: uppercase;
+            color: #666;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .card-content {
+            font-size: 1em;
             color: #333;
-            margin-bottom: 10px;
         }
-        .software-description {
-            margin-bottom: 20px;
-        }
-        .software-rating {
-            color: gold;
-            margin-bottom: 10px;
-        }
-        .download-button {
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: row; /* 保持侧边栏在左侧 */
+            }
+            .sidebar {
+                width: 90px; /* 保持固定宽度 */
+                height: auto;
+            }
+            .main-content {
+                flex-grow: 1;
+                padding: 20px;
+            }
+            .card-container {
+                grid-template-columns: 1fr; /* 卡片堆叠 */
+            }
+            .download-btn {
             display: inline-block;
+            padding: 5px 10px;
             background-color: #5cb85c;
             color: white;
-            padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s;
+            
         }
-        .download-button:hover {
+        .download-btn:hover {
             background-color: #4cae4c;
         }
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .software-item {
-                padding: 10px;
-            }
-            .software-title {
-                font-size: 20px;
-            }
-            .download-button {
-                padding: 8px 16px;
-            }
-        }
+    }
     </style>
-    
-    <style>
-        /* 模态窗口的样式 */
-        .modal {
-            display: none; /* 默认不显示 */
-            position: fixed; /* 固定定位 */
-            z-index: 1; /* 确保模态窗口在最上层 */
-            left: 0;
-            top: 0;
-            width: 100%; /* 宽度100% */
-            height: 100%; /* 高度100% */
-            overflow: auto; /* 允许滚动 */
-            background-color: rgba(0,0,0,0.4); /* 黑色背景，透明度0.4 */
-        }
-
-        /* 模态内容的样式 */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto; /* 15%从顶部和自动居中 */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; /* 内容宽度为80% */
-        }
-
-        /* 关闭按钮的样式 */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
-    
-
 </head>
 <body>
-    <div class="container">
-        <!-- 软件下载卡片 -->
-        <div class="software-item">
-            <h2 class="software-title">烧脑眼神王</h2>
-            <p class="software-description"></p>
-            <a href="https://share.feijipan.com/s/4cAgiJaq" class="download-button">下载</a> 
-
+    <div class="sidebar">
+                <h2></h2>
+        <a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu0')">首页</a>
+        <div id="submenu0" class="submenu">
+            <a href="https://abcd136.github.io/b/">跳转</a>
+            </div>
+        <p><a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu1')">通知</a>
+        <div id="submenu1" class="submenu">
+            <a href="https://abcd136.github.io/b1/">公告</a>
+        </div>
+        <p><a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu2')">广播</a>
+        <div id="submenu2" class="submenu">
+            <a href="https://abcd136.github.io/b41/">广播站</a>
+        </div>
+        <p><a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu3')">安卓</a>
+        <div id="submenu3" class="submenu">
+            <a href="#">软件</a>
+            <a href="#">梯子</a>
+            <a href="#">影视</a>
+            <a href="#">小说</a>
+            <a href="#">AI</a>
+            <a href="#">搜图</a>
+            <a href="#">私密</a>
+            <a href="#">网盘</a>
+            <a href="#">手游</a>
+            <a href="#">动漫</a>
+            <a href="#">工具</a>
+        </div>
+        <p><a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu4')">电脑</a>
+        <div id="submenu4" class="submenu">
+            <a href="#">软件</a>
+            <a href="#">梯子</a>
+            <a href="#">游戏网站</a>
+            <a href="#">游戏加速</a>
+            <a href="#">游戏</a>
+            <a href="#">系统</a>
+        </div>
+        <p><a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu5')">吃瓜</a>
+        <div id="submenu5" class="submenu">
+            <a href="#">网络</a>
+        </div>
+        <p><a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu6')">车牌</a>
+        <div id="submenu6" class="submenu">
+            <a href="#">网络</a>
+            <a href="#">车号</a>
+            <a href="#">里番</a>
+        </div>
+        <a href="#" class="menu-toggle" onclick="toggleMenu(event, 'submenu7')">旧网站</a>
+        <div id="submenu7" class="submenu">
+            <a href="https://abcd136.github.io/abcd/">跳转</a>
+        </div>
     </div>
+    <div class="main-content">
+        <div class="header">
+            <h1></h1>
+        </div>
 
-
-
+        <div class="card-container">
+            <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">烧脑眼神王</div>
+        <div class="card-content">
+        <div class="download-section">
+            从图片找不同样
+        <p><a href="https://share.feijipan.com/s/4cAgiJaq" class="download-btn">下载</a>
         
-        <div class="software-item">
-            <h2 class="software-title">单机小汽车游戏</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/h5Agkn7E" class="download-button">立即下载</a> 
-            
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">单机自行车挑战</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/H7AgmXbh" class="download-button">立即下载</a> 
-            
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">钩鱼</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/IuAjh5Qd" class="download-button">立即下载</a> 
-        </div>
-            
-        <div class="software-item">
-            <h2 class="software-title">植物大战僵尸单机版</h2>
-            <p class="software-description"></p>
-
-            <a href="https://a.download.yunzhongzhuan.com/download/2853694/F2sj243G/base.apk?t=1714814120&o=yunzhongzhuan.com" class="download-button">立即下载</a>
-            
-        </div>
-            
-            <div class="software-item">
-            <h2 class="software-title">永恒世界txt</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/BMAltBuI" class="download-button">立即下载</a> 
-        </div>
-            
-        <div class="software-item">
-            <h2 class="software-title">绯月</h2>
-            <p class="software-description"></p>
-
-            <a href="https://a.download.yunzhongzhuan.com/download/2856541/biqK5DhF/%E7%BB%AF%E6%9C%88.apk?t=1714989985&o=yunzhongzhuan.com" class="download-button">立即下载</a>
-            
-        </div>
-        
-            <div class="software-item">
-            <h2 class="software-title">部落冲突</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/vJAqQLbY" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">女神的最佳交易</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/QmArQ0Sb" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">美少女万华镜1</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/P6AtzrjC" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">美少女万华镜2</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/bjAttVOo" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">美少女万华镜2.5</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/sHAtrpwx" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">美少女万华镜3</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/C3AtrdKe" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">美少女万华镜4</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/XxAtqIq5" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">美少女万华镜5</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/D7Atm6vR" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">美少女万华镜6</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/dXAtooml" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">新天域</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/6jAtjKZo" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">NAA</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/x2Atp73p" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">生活</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/4tAtpvyO" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">恶魔</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/jkAtpyun" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">莎拉罗斯的生存</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/fGAy6yWb" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">淫荡乘客</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/JLA9l1H3" class="download-button">立即下载</a>
-        </div>
-        
-        <div class="software-item">
-            <h2 class="software-title">妹～团乐的刻～</h2>
-            <p class="software-description"></p>
-
-            <a href="https://share.feijipan.com/s/YCA96Yva" class="download-button">立即下载</a>
-        </div>
-        
+</div>
+            </div>
     </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">单机小汽车游戏</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/h5Agkn7E" class="download-btn">下载</a>
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">单机自行车挑战</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/H7AgmXbh" class="download-btn">下载</a>
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">钩鱼</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/IuAjh5Qd" class="download-btn">下载</a>
+        
+</div>
+            </div>
+    </div>
+    <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">植物大战僵尸单机版</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://a.download.yunzhongzhuan.com/download/2853694/F2sj243G/base.apk?t=1714814120&o=yunzhongzhuan.com" class="download-btn">下载</a>
+</div>
+            </div>
+    </div>
+    <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">永恒世界</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/BMAltBuI" class="download-btn">下载</a>
+        
+</div>
+            </div>
+    </div>
+    <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">绯月</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://a.download.yunzhongzhuan.com/download/2856541/biqK5DhF/%E7%BB%AF%E6%9C%88.apk?t=1714989985&o=yunzhongzhuan.com" class="download-btn">下载</a>
+        
+</div>
+            </div>
+    </div>
+    <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">部落冲突</div>
+        <div class="card-content">
+<div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/vJAqQLbY" class="download-btn">下载</a>
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">女神的最佳交易</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/QmArQ0Sb" class="download-btn">下载</a>
+        
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">美少女万华镜1</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/P6AtzrjC" class="download-btn">下载</a>
+        
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">美少女万华镜2</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/bjAttVOo" class="download-btn">下载</a>
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">美少女万华镜2.5</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/sHAtrpwx" class="download-btn">下载</a>
+        
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">美少女万华镜3</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/C3AtrdKe" class="download-btn">下载</a>
+
+</div>
+            </div>
+    </div>
+            <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">美少女万华镜4</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/XxAtqIq5" class="download-btn">下载</a>
+
+</div>
+            </div>
+    </div>
+            <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">美少女万华镜5</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/D7Atm6vR" class="download-btn">下载</a>
+
+</div>
+            </div>
+    </div>
+            <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">美少女万华镜6</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/dXAtooml" class="download-btn">下载</a>
+
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">新天域</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/6jAtjKZo" class="download-btn">下载</a>
+
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">NAA</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/x2Atp73p" class="download-btn">下载</a>
+
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">生活</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/4tAtpvyO" class="download-btn">下载</a>
+
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">恶魔</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/jkAtpyun" class="download-btn">下载</a>
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">莎拉罗斯的生存</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/fGAy6yWb" class="download-btn">下载</a>
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">淫荡乘客</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/JLA9l1H3" class="download-btn">下载</a>
+</div>
+            </div>
+    </div>
+        <div class="card">
+        <div class="card-category"></div>
+        <div class="card-title">妹～团乐的刻～</div>
+        <div class="card-content">
+        <div class="download-section">
+            
+        <p><a href="https://share.feijipan.com/s/YCA96Yva" class="download-btn">下载</a>
+</div>
+            </div>
+    </div>
+    <script>
+        function toggleMenu(event, submenuId) {
+            event.preventDefault(); // 阻止链接的默认行为
+            var submenu = document.getElementById(submenuId);
+            if (submenu.style.display === 'block') {
+                submenu.style.display = 'none';
+            } else {
+                submenu.style.display = 'block';
+            }
+        }
+        // ... JavaScript代码保持不变 ...
+    </script>
 </body>
 </html>
-     
